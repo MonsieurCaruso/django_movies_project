@@ -1,6 +1,5 @@
 # Own
-*.movie_env
-.movie_env
+.movie_env/*
 data.json
 
 
