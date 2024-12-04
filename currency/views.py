@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 import json
+import os
 
 # Create your views here.
 # Liste der gängigen Währungen
 CURRENCY_CHOICES = ['USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD', 'CHF', 'CNY', 'SEK', 'NZD']
 
 def currency(request):
-    api_key = '55d50301c8add778a9ca4369'
+    api_key = os.environ.get('CURRENCY_KEY')
     url = f'https://v6.exchangerate-api.com/v6/{api_key}/latest/'
 
     conversion_result = None
