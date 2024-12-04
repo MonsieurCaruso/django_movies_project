@@ -32,8 +32,13 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+## For example, for a site URL at 'hamishwillee.pythonanywhere.com'
+## (replace the string below with your own site URL):
+ALLOWED_HOSTS = ['MonsieurCaruso.pythonanywhere.com', '127.0.0.1']
 
+# During development, you can instead set just the base URL
+# (you might decide to change the site a few times).
+# ALLOWED_HOSTS = ['.pythonanywhere.com','127.0.0.1']
 
 # Application definition
 
@@ -169,3 +174,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+## For example, for a site URL is at 'web-production-3640.up.railway.app'
+## (replace the string below with your own site URL):
+CSRF_TRUSTED_ORIGINS = ['https://hamishwillee.pythonanywhere.com']
+
+# During development/for this tutorial you can instead set just the base URL
+# CSRF_TRUSTED_ORIGINS = ['https://*.pythonanywhere.com']
