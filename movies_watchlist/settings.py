@@ -34,7 +34,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ## For example, for a site URL at 'hamishwillee.pythonanywhere.com'
 ## (replace the string below with your own site URL):
-ALLOWED_HOSTS = ['MonsieurCaruso.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['monsieurcaruso.pythonanywhere.com']
 
 # During development, you can instead set just the base URL
 # (you might decide to change the site a few times).
@@ -159,16 +159,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
-
-# Optional, falls du CSS-Dateien außerhalb der Apps gespeichert hast
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+    BASE_DIR / 'static',
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
