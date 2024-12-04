@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+.nav-logo a {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.nav-links .active a {
+    background-color: #575757; /* Gleiche Farbe wie beim Hover */
+    border-radius: 5px;
+    color: yellow; /* Hebt sich von anderen Links ab */
+    font-weight: bold;
+}
+
+main {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

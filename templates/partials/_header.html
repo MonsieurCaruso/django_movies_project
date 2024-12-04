@@ -1,0 +1,38 @@
+<header>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="{% url 'movies:watchlist' %}">Django Watchlist</a>
+        </div>
+        <ul class="nav-links">
+            <li class="{% if request.path == '/' %}active{% endif %}">
+                <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="{% if request.path == '/movies/watchlist/' %}active{% endif %}">
+                <a href="{% url 'movies:watchlist' %}">Meine Watchlist</a>
+            </li>
+            <li class="{% if request.path == '/movies/add/' %}active{% endif %}">
+                <a href="{% url 'movies:add_movie' %}">Film hinzufügen</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <form method="POST" action="{% url 'accounts:logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="logout-button">Abmelden</button>
+                    </form>
+                </li>
+            {% else %}
+                <li class="{% if request.path == '/accounts/login/' %}active{% endif %}">
+                    <a href="{% url 'accounts:login' %}">Anmelden</a>
+                </li>
+                <li class="{% if request.path == '/accounts/register/' %}active{% endif %}">
+                    <a href="{% url 'accounts:register' %}">Registrieren</a>
+                </li>
+            {% endif %}
+            {% if user.is_staff %}
+                <li class="{% if request.path == '/admin/' %}active{% endif %}">
+                    <a href="/admin/">Admin-Bereich</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

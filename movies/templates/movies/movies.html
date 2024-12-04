@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Movies Watchlist{% endblock title %}
+
+{% block content %}
+<h1>My lovely movies</h1>
+{% if movies %}
+<ul>
+    {% for movie in movies %}
+        <li>
+            <strong>{{ movie.title }}</strong> ({{ movie.release_year }}) / {{ movie.get_genre_display }}
+            <br>Director: {{ movie.director }}
+            {% if movie.imdb_url %}
+                <br><a href="{{ movie.imdb_url }}"></a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No movies added yet!</p>
+{% endif %}
+<p><a href="{% url "movies:add_movie" %}">Add Movie</a></p>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Upload CSV{% endblock title %}
+
+{% block content %}
+<h1>CSV-Datei hochladen</h1>
+
+    <!-- Nachricht anzeigen -->
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Upload-Formular -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Hochladen</button>
+    </form>
+{% endblock content %}

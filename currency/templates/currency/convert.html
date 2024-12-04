@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Currency Changer{% endblock title %}
+
+{% block content %}
+    <h1>Währungsumrechner</h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="from_currency">Von:</label>
+        <select id="from_currency" name="from_currency" required>
+            {% for currency in currencies %}
+            <option value="{{ currency }}" {% if currency == "USD" %}selected{% endif %}>{{ currency }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="to_currency">Nach:</label>
+        <select id="to_currency" name="to_currency" required>
+            {% for currency in currencies %}
+            <option value="{{ currency }}" {% if currency == "EUR" %}selected{% endif %}>{{ currency }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="amount">Betrag:</label>
+        <input type="number" id="amount" name="amount" placeholder="1" step="0.01" required>
+
+        <button type="submit">Umrechnen</button>
+    </form>
+
+    {% if conversion_result %}
+    <h2>Ergebnis</h2>
+    <p>{{ amount }} {{ from_currency }} = {{ conversion_result|floatformat:2 }} {{ to_currency }}</p>
+    {% endif %}
+
+    {% if error_message %}
+    <h3 style="color: red;">{{ error_message }}</h3>
+    {% endif %}
+    op
+{% endblock content %}
